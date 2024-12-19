@@ -1,19 +1,19 @@
-const iputBox=document.getElementById("inputBox");
+const inputBox=document.getElementById("inputBox");
 const listcontainer=document.getElementById("listContainer");
 function AddTask(){
-    if(iputBox.value === ""){
+    if(inputBox.value === ""){
         alert("You must write something")
     }
     else{
         var li=document.createElement("li");
-        li.innerHTML=iputBox.value;
+        li.innerHTML=inputBox.value;
         listcontainer.appendChild(li)
         let span=document.createElement("span");
         span.innerHTML="\u00d7";
         li.appendChild(span)
 
      }
-     iputBox.value=""
+     inputBox.value=""
      saveData();
 
     
@@ -33,7 +33,7 @@ listcontainer.addEventListener("click",function(e){
 function saveData(){
     localStorage.setItem("data",listcontainer.innerHTML);
 }
-function shawTask(){
+function showTask(){
     listcontainer.innerHTML=localStorage.getItem("data");
 }
-shawTask();
+showTask();
